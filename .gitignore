@@ -1,0 +1,10 @@
+build/
+logs/
+*.o
+*.obj
+*.exe
+*.log
+*.dSYM/
+.idea/
+.vscode/
+.DS_Store

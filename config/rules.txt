@@ -1,0 +1,7 @@
+# RuleName:pattern
+SQL_INJECTION:' OR 1=1
+XSS:<script>
+SUSPICIOUS_URL:http://
+SUSPICIOUS_URL:https://
+FTP_TRAFFIC:ftp
+SUSPICIOUS_HTTPS_HOST:regex:.*(malware|phish|badsite|malicious|suspicious).*
