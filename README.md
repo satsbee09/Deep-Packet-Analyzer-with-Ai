@@ -1,6 +1,270 @@
 # Deep Packet Analyzer with AI
 
 A C++ project for analyzing PCAP files and generating packet summaries, now extended with a FastAPI backend and React dashboard.
+# Deep Packet Inspection & Threat Analytics Platform
+
+## Overview
+
+Deep Packet Inspection & Threat Analytics Platform is a cybersecurity application that analyzes network traffic from PCAP files and detects malicious activities using signature-based Deep Packet Inspection (DPI).
+
+The system parses network packets, extracts payload data, applies detection rules, and visualizes threats through a modern web dashboard.
+
+---
+
+## Features
+
+### Network Packet Analysis
+
+* PCAP file processing
+* Ethernet frame parsing
+* IPv4 packet parsing
+* TCP packet parsing
+* UDP packet parsing
+
+### Threat Detection
+
+* SQL Injection Detection
+* Cross-Site Scripting (XSS) Detection
+* Suspicious URL Detection
+* FTP Traffic Detection
+* Suspicious HTTPS Host Detection
+
+### Logging & Monitoring
+
+* Threat logging
+* Timestamped alerts
+* Source and destination tracking
+* Detection history
+
+### Dashboard
+
+* PCAP Upload Interface
+* Threat Visualization
+* Severity Classification
+* Detection Statistics
+* Interactive Charts
+
+---
+
+## Architecture
+
+```text
+React Dashboard
+        │
+        ▼
+FastAPI Backend
+        │
+        ▼
+C++ DPI Engine
+        │
+        ▼
+Packet Parser
+        │
+        ▼
+Rule Engine
+        │
+        ▼
+Threat Detection
+        │
+        ▼
+Logs & Reports
+```
+
+---
+
+## Technology Stack
+
+### Backend
+
+* C++
+* libpcap
+* FastAPI
+* Python
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* Recharts
+
+### Build Tools
+
+* CMake
+* GCC/G++
+
+---
+
+## Project Structure
+
+```text
+Deep-Packet-Analyzer-with-Ai/
+│
+├── backend/
+│   └── app.py
+│
+├── frontend/
+│   ├── src/
+│   └── public/
+│
+├── src/
+│   ├── parser/
+│   ├── dpi/
+│   ├── capture/
+│   └── logger/
+│
+├── include/
+├── config/
+│   └── rules.txt
+│
+├── tests/
+│   ├── attack.pcap
+│   ├── attack_xss.pcap
+│   ├── ftp_demo.pcap
+│   └── normal_http.pcap
+│
+└── build/
+```
+
+---
+
+## Installation
+
+### Clone Repository
+
+```bash
+git clone <repository-url>
+cd Deep-Packet-Analyzer-with-Ai
+```
+
+### Build C++ Analyzer
+
+```bash
+mkdir build
+cd build
+
+cmake ..
+cmake --build .
+```
+
+---
+
+## Running Backend
+
+```bash
+cd backend
+
+pip install -r requirements.txt
+
+uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+```
+
+API Documentation:
+
+```text
+http://localhost:8000/docs
+```
+
+---
+
+## Running Frontend
+
+```bash
+cd frontend
+
+npm install --legacy-peer-deps
+
+npm run dev
+```
+
+Frontend URL:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Running Analyzer Directly
+
+```bash
+./deep_packet_analyzer \
+--offline ../tests/attack.pcap \
+--rules ../config/rules.txt \
+--log ../tests/attack.log
+```
+
+---
+
+## Sample Detection Output
+
+```text
+BLOCKED:
+10.0.0.1:12345 -> 10.0.0.2:80
+Reasons = SQL Injection
+Rule = SQL_INJECTION
+```
+
+---
+
+## Detection Rules
+
+```text
+SQL_INJECTION:' OR 1=1
+XSS:<script>
+SUSPICIOUS_URL:http://
+SUSPICIOUS_URL:https://
+FTP_TRAFFIC:ftp
+```
+
+---
+
+## Demo Scenarios
+
+### Normal Traffic
+
+* File: normal_http.pcap
+* Result: No Threats Detected
+
+### SQL Injection
+
+* File: attack.pcap
+* Result: SQL Injection Alert
+
+### Cross Site Scripting
+
+* File: attack_xss.pcap
+* Result: XSS Alert
+
+### FTP Traffic
+
+* File: ftp_demo.pcap
+* Result: FTP Traffic Alert
+
+---
+
+## Future Enhancements
+
+* Real-time packet capture
+* Machine Learning based anomaly detection
+* Multi-threaded packet processing
+* Threat intelligence integration
+* PDF report generation
+* SIEM integration
+* Cloud deployment
+
+---
+
+## Author
+
+Satyam Singh
+
+B.Tech Computer Science Engineering
+
+GL Bajaj Institute of Technology and Management
+
+GitHub: https://github.com/satsbee09
+
 
 ## Build
 
