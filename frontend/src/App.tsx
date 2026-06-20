@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { AreaChart, Area, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, PieChart, Pie, Cell } from 'recharts'
 
+
+
 interface EventItem {
   timestamp: string
   sourceIp: string | null
@@ -87,7 +89,7 @@ function App() {
     formData.append('file', file)
 
     try {
-      const response = await fetch('http://localhost:8000/upload-pcap', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/upload-pcap`, {
         method: 'POST',
         body: formData,
       })
