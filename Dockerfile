@@ -11,7 +11,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r backend/requirements.txt
+RUN python3 -m pip install --break-system-packages -r backend/requirements.txt
 
 RUN mkdir -p build && \
     cd build && \
